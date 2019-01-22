@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "David Mueller"
+        ]
+    },
+    "emailDNSValidate": "Email DNS Validation",
+    "emailDNSValidate-desc": "Validate the existance of the domain part of an email address"
+}

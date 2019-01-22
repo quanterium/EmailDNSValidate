@@ -1,0 +1,27 @@
+{
+    "name": "EmailDNSValidate",
+    "author": "David Mueller",
+    "url": "https://github.com/quanterium/email-dns-validate",
+    "license-name": "GPL-2.0+",
+    "version": "0.0.1",
+    "namemsg": "emailDNSValidate",
+    "descriptionmsg": "emailDNSValidate-desc",
+    "manifest_version": 1,
+    "MessagesDirs": {
+        "EmailDNSValidate": [ "i18n" ]
+    },
+    "AutoloadClasses": [],
+    "type": "other",
+    "requires": {
+            "MediaWiki": ">= 1.25.0",
+            "platform": {
+			    "php": ">= 7.1"
+		}
+    },
+    "AutoloadClasses": {
+            "EmailDNSValidate": "EmailDNSValidate_body.php"
+    }
+    "Hooks": {
+            "isValidEmailAddr": "EmailDNSValidate::onisValidEmailAddr"
+    }
+}

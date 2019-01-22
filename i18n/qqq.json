@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "David Mueller"
+        ]
+    },
+    "emailDNSValidate": "The name of the extension",
+    "emailDNSValidate-desc": "{{desc|name=EmailDNSValidate|url=https://github.com/quanterium/email-dns-validate}}"
+}
