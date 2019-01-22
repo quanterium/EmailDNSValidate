@@ -10,7 +10,6 @@
     "MessagesDirs": {
         "EmailDNSValidate": [ "i18n" ]
     },
-    "AutoloadClasses": [],
     "type": "other",
     "requires": {
             "MediaWiki": ">= 1.25.0",
