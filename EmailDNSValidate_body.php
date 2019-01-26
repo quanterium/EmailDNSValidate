@@ -25,7 +25,19 @@ class EmailDNSValidate {
         
         $domain = array_pop(explode("@", $addr));
         
-        // check if the domain is actually an IP address, if so we assume it's valid
+        // check if the domain is actually an IP address
+        if filter_var($domain, FILTER_VALIDATE_IP)
+        {
+            // reject private or reserved (includes loopback) IPs
+            if (!filter_var($domain, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE))
+            {
+                $result = "Domain component is private or reserved IP";
+                return false;
+            }
+            
+            // other IP addresses are ok
+            return true;
+        }
         
         // handle unicode domains, see https://php.net/manual/en/function.checkdnsrr.php#112739
         $domain = idn_to_ascii($domain);
@@ -38,6 +50,8 @@ class EmailDNSValidate {
         }
         
         // check for the existance of the domain
+        // we don't require an MX record since its valid to not have one if the mail server
+        // runs on the IP of the domain
         if (!checkdnsrr($domain, "ANY"))
         {
             $result = "Domain name not found in DNS";
