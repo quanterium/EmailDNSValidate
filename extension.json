@@ -1,7 +1,7 @@
 {
     "name": "EmailDNSValidate",
     "author": "David Mueller",
-    "url": "https://github.com/quanterium/email-dns-validate",
+    "url": "https://github.com/quanterium/EmailDNSValidate",
     "license-name": "GPL-2.0+",
     "version": "0.0.1",
     "namemsg": "emailDNSValidate",
