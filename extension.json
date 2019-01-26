@@ -19,7 +19,7 @@
     },
     "AutoloadClasses": {
             "EmailDNSValidate": "EmailDNSValidate_body.php"
-    }
+    },
     "Hooks": {
             "isValidEmailAddr": "EmailDNSValidate::onisValidEmailAddr"
     }
