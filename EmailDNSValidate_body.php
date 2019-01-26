@@ -20,27 +20,24 @@ class EmailDNSValidate {
         if (!preg_match( $html5_email_regexp, $addr ))
         {
             $result = "Email format validation failed";
-            return false;
+            return $result;
         }
         
         $domain = array_pop(explode("@", $addr));
         
         // check if the domain is actually an IP address
-        if filter_var($domain, FILTER_VALIDATE_IP)
+        if (filter_var($domain, FILTER_VALIDATE_IP))
         {
             // reject private or reserved (includes loopback) IPs
             if (!filter_var($domain, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE))
             {
                 $result = "Domain component is private or reserved IP";
-                return false;
+                return $result;
             }
             
             // other IP addresses are ok
             return true;
         }
-        
-        // handle unicode domains, see https://php.net/manual/en/function.checkdnsrr.php#112739
-        $domain = idn_to_ascii($domain);
         
         // domains should actually end in a . to prevent checkdnsrr from trying to lookup the domain
         // as a relative domain, see https://php.net/manual/en/function.checkdnsrr.php#119969
@@ -55,7 +52,7 @@ class EmailDNSValidate {
         if (!checkdnsrr($domain, "ANY"))
         {
             $result = "Domain name not found in DNS";
-            return false;
+            return $result;
         }
         
         // all checks passed

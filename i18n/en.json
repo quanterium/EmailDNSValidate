@@ -5,5 +5,5 @@
         ]
     },
     "emailDNSValidate": "Email DNS Validation",
-    "emailDNSValidate-desc": "Validate the existance of the domain part of an email address"
+    "emailDNSValidate-desc": "Validate the existence of the domain part of an email address"
 }
