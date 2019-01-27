@@ -5,5 +5,8 @@
         ]
     },
     "emailDNSValidate": "The name of the extension",
-    "emailDNSValidate-desc": "{{desc|name=EmailDNSValidate|url=https://github.com/quanterium/email-dns-validate}}"
+    "emailDNSValidate-desc": "{{desc|name=EmailDNSValidate|url=https://github.com/quanterium/EmailDNSValidate}}",
+    "emaildnsvalidate-formatvalfail": "Error message displayed when the provided email address fails basic format validation.",
+    "emaildnsvalidate-ipprivres": "Error message displayed when the provided email address' domain component is a private or reserved IP address.",
+    "emaildnsvalidate-nxdomain": "Error message displayed when the provided email address is not a valid registered domain."
 }

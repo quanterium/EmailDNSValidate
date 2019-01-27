@@ -19,7 +19,7 @@ class EmailDNSValidate {
         /ix"; // case Insensitive, eXtended
         if (!preg_match( $html5_email_regexp, $addr ))
         {
-            $result = "Email format validation failed";
+            $result = wfMessage('emaildnsvalidate-formatvalfail', $addr)->parse();
             return $result;
         }
         
@@ -31,7 +31,7 @@ class EmailDNSValidate {
             // reject private or reserved (includes loopback) IPs
             if (!filter_var($domain, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE))
             {
-                $result = "Domain component is private or reserved IP";
+                $result = wfMessage('emaildnsvalidate-ipprivres', $domain)->parse();
                 return $result;
             }
             
@@ -51,7 +51,7 @@ class EmailDNSValidate {
         // runs on the IP of the domain
         if (!checkdnsrr($domain, "ANY"))
         {
-            $result = "Domain name not found in DNS";
+            $result = wfMessage('emaildnsvalidate-nxdomain', $domain)->parse();
             return $result;
         }
         
