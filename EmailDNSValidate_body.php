@@ -47,9 +47,10 @@ class EmailDNSValidate {
         }
         
         // check for the existance of the domain
-        // we don't require an MX record since its valid to not have one if the mail server
-        // runs on the IP of the domain
-        if (!checkdnsrr($domain, "ANY"))
+        // it's valid to not have an MX record if the mail server runs on the IP of the domain,
+        // but since the ANY search doesn't seem to return MX records for domains that just
+        // do email and don't have an A record, try both
+        if (!checkdnsrr($domain, "MX") and !checkdnsrr($domain, "ANY"))
         {
             $result = wfMessage('emaildnsvalidate-nxdomain', $domain)->parse();
             return $result;
