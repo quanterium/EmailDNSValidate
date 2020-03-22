@@ -17,6 +17,8 @@ wfLoadExtension('EmailDNSValidate');
 $wgEmailDNSValidateDomainBlacklist = array('example.com', 'example.net');
 ```
 
+If it is not defined, no domains will be blacklisted.
+
 ## What it Does
 
 MediaWiki by default validates only the format of an email address. This extension extends

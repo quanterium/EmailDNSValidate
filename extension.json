@@ -20,7 +20,7 @@
     "Hooks": {
             "isValidEmailAddr": "EmailDNSValidate::onisValidEmailAddr"
     },
-	"config": {
-		"EmailDNSValidateDomainBlacklist": []
-	},
+    "config": {
+        "EmailDNSValidateDomainBlacklist": []
+    }
 }
