@@ -29,7 +29,7 @@ class EmailDNSValidate {
         
         // check if the domain is in the blacklist
         $config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig('EmailDNSValidate');
-        $blacklist = $config->get('DomainBlacklist');
+        $blacklist = $config->get('EmailDNSValidateDomainBlacklist');
         if (in_array(strtolower($domain), $blacklist))
         {
             $result = wfMessage('emaildnsvalidate-blacklist', $domain)->parse();

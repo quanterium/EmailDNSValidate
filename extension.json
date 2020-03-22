@@ -6,7 +6,7 @@
     "version": "0.0.5",
     "namemsg": "emailDNSValidate",
     "descriptionmsg": "emailDNSValidate-desc",
-    "manifest_version": 1,
+    "manifest_version": 2,
     "MessagesDirs": {
         "EmailDNSValidate": [ "i18n" ]
     },
@@ -21,6 +21,12 @@
             "isValidEmailAddr": "EmailDNSValidate::onisValidEmailAddr"
     },
     "config": {
-        "EmailDNSValidateDomainBlacklist": []
+        "EmailDNSValidateDomainBlacklist": {
+           "value": []
+        }
+    },
+    "ConfigRegistry": {
+        "EmailDNSValidate": "GlobalVarConfig::newInstance"
     }
+
 }
