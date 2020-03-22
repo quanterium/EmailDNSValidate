@@ -3,7 +3,7 @@
     "author": "David Mueller",
     "url": "https://github.com/quanterium/EmailDNSValidate",
     "license-name": "GPL-2.0+",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "namemsg": "emailDNSValidate",
     "descriptionmsg": "emailDNSValidate-desc",
     "manifest_version": 1,
@@ -19,5 +19,8 @@
     },
     "Hooks": {
             "isValidEmailAddr": "EmailDNSValidate::onisValidEmailAddr"
-    }
+    },
+	"config": {
+		"EmailDNSValidateDomainBlacklist": []
+	},
 }

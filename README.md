@@ -4,11 +4,18 @@ MediaWiki extension to validate the existence of the domain part of an email add
 ## Installation
 
 1. Clone the extension from GitHub to your wiki's extensions folder: `git clone https://github.com/quanterium/EmailDNSValidate.git`
-2. Enable the extension by adding it to your LocalSettings.php file: `wfLoadExtension( 'EmailDNSValidate' );`
+2. Enable the extension by adding it to your LocalSettings.php file: `wfLoadExtension('EmailDNSValidate');`
 
 ## Configuration
 
-At this time, there are no configuration options for this extension.
+If you wish to prohibit certain domains from being able to register, set the variable
+`$wgEmailDNSValidateDomainBlacklist` to be an array containing the domains you wish to prohibit
+after including the extension in your LocalSettings.php file. For example:
+
+```php
+wfLoadExtension('EmailDNSValidate');
+$wgEmailDNSValidateDomainBlacklist = array('example.com', 'example.net');
+```
 
 ## What it Does
 
@@ -19,6 +26,8 @@ IP address associated with the domain runs the SMTP server.
 
 IP addresses in place of the domain are allowed; this extension will check for and block IP
 addresses in private or reserved address blocks.
+
+This extension can also check against a blacklist of prohibited domains.
 
 ## Bugs Reports and Feature Requests
 

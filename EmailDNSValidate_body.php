@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class EmailDNSValidate {
 
     public function onisValidEmailAddr( $addr, &$result )
@@ -24,6 +26,15 @@ class EmailDNSValidate {
         }
         
         $domain = array_pop(explode("@", $addr));
+        
+        // check if the domain is in the blacklist
+        $config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig('EmailDNSValidate');
+        $blacklist = $config->get('DomainBlacklist');
+        if (in_array(strtolower($domain), $blacklist))
+        {
+            $result = wfMessage('emaildnsvalidate-blacklist', $domain)->parse();
+            return $result;
+        }
         
         // check if the domain is actually an IP address
         if (filter_var($domain, FILTER_VALIDATE_IP))

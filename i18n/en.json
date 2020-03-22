@@ -8,5 +8,6 @@
     "emailDNSValidate-desc": "Validate the existence of the domain part of an email address",
     "emaildnsvalidate-formatvalfail": "The provided email address $1 does not appear to be a valid email address.",
     "emaildnsvalidate-ipprivres": "The domain component of the provided email address, $1, is a private or reserved IP address.",
-    "emaildnsvalidate-nxdomain": "The domain component of the provided email address, $1, is not a valid registered domain name."
+    "emaildnsvalidate-nxdomain": "The domain component of the provided email address, $1, is not a valid registered domain name.",
+    "emaildnsvalidate-blacklist": "The domain component of the provided email address, $1, is not permitted."
 }
